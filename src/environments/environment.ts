@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   urlBase: 'https://v3.tissini.app/api/v3/',
   files: 'https://v3.tissini.app/'
 };

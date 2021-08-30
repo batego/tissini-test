@@ -1,0 +1,80 @@
+<div class="flex align-items-center justify-content-center " *ngIf="categories == undefined">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+
+<div class="flex flex-column card-container mt-5">
+  <!-- <div class="col-3"></div> -->
+  <div class="flex align-items-center justify-content-center">
+    <div class="col-md-auto">
+      <div class="card text-dark" style="width: 600px;" *ngFor="let section of categories; let i = index">
+        <img src="{{url}}{{section.image}}" class="card-img-top" style="border-radius: 20px;" alt="...">
+        <div class="card-body">
+
+          <p-carousel [value]="section.products" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1"
+            [circular]="true" [responsiveOptions]="responsiveOptions">
+            <ng-template pTemplate="header">
+              <!-- <h5>{{section.name}}</h5> -->
+            </ng-template>
+            <ng-template let-product pTemplate="item">
+              <div class="product-item">
+                <div class="product-item-content">
+                  <div>
+                    <div class="p-mb-3">
+                      <img src="{{url}}{{product.image.url}}" [alt]="product.name"
+                        style="width: 120px; border-radius: 60px;" class="product-image" />
+                    </div>
+                    <!-- <p-avatar image="{{url}}{{product.image.url}}" styleClass="" size="xlarge" shape="circle"> -->
+                    <!-- </p-avatar> -->
+                    <h4>{{product.name}}</h4>
+                    <h5>{{product.categories.category}}</h5>
+                    <h6>${{product.price}}</h6>
+                    <div class="car-buttons p-mt-5">
+                      <p-button type="button" styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-search"
+                        (click)="verProductos(product.category_id)"></p-button>
+                      <!-- <p-button type="button" styleClass="p-button-success  p-mr-2" icon="pi pi-star"></p-button> -->
+                      <!-- <p-button type="button" styleClass="p-button-help p-button-rounded" icon="pi pi-cog"></p-button> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </p-carousel>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col-3"></div> -->
+</div>
+
+
+
+
+<!-- <div class="container pt-3">
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+      <div class="card text-dark" style="width: 600px;" *ngFor="let section of categories; let i = index">
+        <img src="{{url}}{{section.image}}" class="card-img-top" alt="...">
+        <div class="card-body">
+
+          <div class="card mb-3" style="max-width: 550px;" *ngFor="let prod of section.products">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{url}}{{prod.image.url}}" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
+                    This content is a little bit longer.</p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div>  
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

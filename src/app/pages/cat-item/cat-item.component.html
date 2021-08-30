@@ -1,0 +1,35 @@
+<!-- <div class="card animated fadeIn fast" *ngFor="let item of products">
+  <img [src]="" class="card-img-top img-fluid">
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text"></p>
+    <p class="card-text"><small class="text-muted"></small></p>
+    <button type="button" name="" id="" class="btn btn-outline-primary btn-block">Ver
+      +</button>
+    <a [routerLink]="['/heroe', i]" name="" id="" class="btn btn-outline-primary btn-block">Ver +</a> -->
+<!-- </div> -->
+<!-- </div> -->
+<div class="flex align-items-center justify-content-center " *ngIf="products == undefined">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+<div class="flex flex-column card-container mt-5 ">
+  <div class="flex align-items-center justify-content-center">
+    <div class="col-md-auto">
+
+      <p-card class="p-1" subheader="Card Subheader" [style]="{width: '300px'}" styleClass="p-card-shadow"
+        *ngFor="let item of products">
+        <ng-template pTemplate="header">
+          <img alt="Card" src="{{url}}{{item.images[0].url}}">
+        </ng-template>
+        <p></p>
+        <ng-template pTemplate="footer">
+          <p-button label="Agregar" icon="pi pi-shopping-cart"></p-button>
+          <button pButton pRipple type="button" icon="pi pi-money-bill" [style]="{'margin-left': '.5em'}"
+            label="{{item.price | currency}}" class="p-button-rounded p-button-text"></button>
+          <!-- <p-button label="{{item.price | currency}}" icon="pi pi-money-bill" styleClass="" [style]="{'margin-left': '.5em'}">  -->
+          <!-- </p-button> -->
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+</div>
